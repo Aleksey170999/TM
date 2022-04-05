@@ -28,11 +28,14 @@ def create(request):
             'out_time': time.out_time,
             'date': time.date
             }
-        all_times.append(time_info)
         
+        all_times.append(time_info)
+
+
     data = {
         'form': form,
         'times': all_times
     }
+
 
     return render(request, 'TM_app/times.html', data)

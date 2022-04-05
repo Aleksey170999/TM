@@ -2,6 +2,8 @@
 {% load static %}
 
 {% block content %}
+
+{% if user.is_authenticated %}
     <form method="post">
         {% csrf_token %}
 
@@ -13,12 +15,17 @@
     </form>
 
     {% for el in times %}
-        <div class="container">
-            {{ el.user_name }}
-            {{ el.date }}
-            {{ el.in_time }}
-            {{ el.out_time }}
-        </div>
+        {% if el.user_name == user.username %}
+            <div class="container">
+                {{ el.user_name }}
+                {{ el.date }}
+                {{ el.in_time }}
+                {{ el.out_time }}
+            </div>
+        {% endif %}
     {% endfor %}
+
+{% endif %}
+
 
 {% endblock %}
