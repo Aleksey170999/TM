@@ -4,18 +4,21 @@
 {% block content %}
     <form method="post">
         {% csrf_token %}
+
         {{ form.user_name }}
+        {{ form.date }}
         {{ form.in_time }}
         {{ form.out_time }}
         <button type="submit" class="btn btn-success">Ok</button>
     </form>
 
     {% for el in times %}
-    <div class="container">
-        {{ el.user_name }}
-        {{ el.in_time }}
-        {{ el.out_time }}
-    </div>
-
+        <div class="container">
+            {{ el.user_name }}
+            {{ el.date }}
+            {{ el.in_time }}
+            {{ el.out_time }}
+        </div>
     {% endfor %}
+
 {% endblock %}
