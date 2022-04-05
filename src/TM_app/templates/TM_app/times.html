@@ -1,0 +1,21 @@
+{% extends 'TM_app/base.html' %}
+{% load static %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.user_name }}
+        {{ form.in_time }}
+        {{ form.out_time }}
+        <button type="submit" class="btn btn-success">Ok</button>
+    </form>
+
+    {% for el in times %}
+    <div class="container">
+        {{ el.user_name }}
+        {{ el.in_time }}
+        {{ el.out_time }}
+    </div>
+
+    {% endfor %}
+{% endblock %}
