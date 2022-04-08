@@ -1,11 +1,9 @@
 from django.shortcuts import render, redirect
+from TM_app.services import get_context
 from .forms import TimesForm
 from .models import TimesModel
-# from django.contrib.auth.urls
 
-# def times_list(request):
-#     data = TimesForm.objects.all()
-#     return render(request, 'TM_app/times.html', data)
+from . import services
 
 
 def create(request):
@@ -19,23 +17,9 @@ def create(request):
 
     form = TimesForm()
 
-    all_times = []
-    times = TimesModel.objects.all()
-    for time in times:
-        time_info = {
-            'user_name': time.user_name,
-            'in_time': time.in_time,
-            'out_time': time.out_time,
-            'date': time.date
-            }
-        
-        all_times.append(time_info)
-
-
     data = {
         'form': form,
-        'times': all_times
+        'times': services.get_context(request)
     }
-
 
     return render(request, 'TM_app/times.html', data)

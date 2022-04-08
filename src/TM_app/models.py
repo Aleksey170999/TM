@@ -1,13 +1,17 @@
-from datetime import date
 from django.db import models
 from django.contrib.auth import authenticate
-import datetime
+from datetime import datetime
 
 class TimesModel(models.Model):
-    user_name = models.CharField(max_length=50, default='User')
-    date = models.DateField(blank=False)
+    user_name = models.CharField(max_length=50)
+
+    in_date = models.DateField(blank=False)
+    out_date = models.DateField(blank=False)
+
     in_time = models.TextField(blank=False)
     out_time = models.TextField(blank=False)
+    
+    pere = models.CharField(max_length=10)
 
     def __str__(self):
-        return str(self.in_time)
+        return f'{self.user_name}____{self.pere}'
