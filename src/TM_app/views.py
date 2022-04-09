@@ -1,7 +1,5 @@
 from django.shortcuts import render, redirect
-from TM_app.services import get_context
 from .forms import TimesForm
-from .models import TimesModel
 
 from . import services
 
@@ -12,8 +10,8 @@ def create(request):
         if form.is_valid():
             form.save()
             return redirect('create_times')
-    else:
-        form = TimesForm()
+        else:
+            form = TimesForm()
 
     form = TimesForm()
 

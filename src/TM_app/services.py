@@ -1,10 +1,13 @@
-from datetime import timedelta, datetime
+from datetime import datetime
 from .models import TimesModel
+
 
 
 def get_context(request):
     all_times = []
+
     times = TimesModel.objects.all()
+
     for time in times:
         year_in = int(str(time.in_date).split('-')[0])
         month_in = int(str(time.in_date).split('-')[1])

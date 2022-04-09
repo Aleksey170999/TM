@@ -6,22 +6,21 @@
 {% if user.is_authenticated %}
     <form method="post">
         {% csrf_token %}
-        <div class="form-group">
-            <label for="InputDate">Дата прихода: </label>
+            <label>Имя: </label>
+            {{ form.user_name }}
+            
+            <label>Дата прихода: </label>
             {{ form.in_date }}
-        </div>
-        <div class="form-group">
-            <label for="InputDate">Дата ухода: </label>
+
+            <label>Дата ухода: </label>
             {{ form.out_date }}
-        </div>
-        <div class="form-group">
-            <label for="InputInTime">Время прихода: </label>
+
+            <label>Время прихода: </label>
             {{ form.in_time }}
-        </div>
-        <div class="form-group">
-            <label for="InputOutTime">Время ухода: </label>
+
+            <label>Время ухода: </label>
             {{ form.out_time }}
-        </div>
+            
         <button type="submit" class="btn btn-success">Ok</button>
     </form>
     <br>
