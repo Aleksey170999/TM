@@ -5,10 +5,7 @@
 
 {% if user.is_authenticated %}
     <form method="post">
-        {% csrf_token %}
-            <label>Имя: </label>
-            {{ form.user_name }}
-            
+        {% csrf_token %}            
             <label>Дата прихода: </label>
             {{ form.in_date }}
 
@@ -32,7 +29,6 @@
             <th>Дата ухода</th>
             <th>Время прихода</th>
             <th>Время ухода</th>
-            <th>Переработки</th>
         </thead> 
         <tbody>
             {% for el in times %}
@@ -43,7 +39,6 @@
                     <td>{{ el.out_date }}</td>
                     <td>{{ el.in_time }}</td>
                     <td>{{ el.out_time }}</td>
-                    <td>{{ el.pere }}</td>
                 </tr>
             {% endif %}
             {% endfor %}    

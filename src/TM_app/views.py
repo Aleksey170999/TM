@@ -8,7 +8,10 @@ def create(request):
     if request.method == "POST":
         form = TimesForm(request.POST)
         if form.is_valid():
-            form.save()
+            new_post = form.save(commit=False)
+            new_post.user_name = request.user
+            new_post.save()            
+            
             return redirect('create_times')
         else:
             form = TimesForm()

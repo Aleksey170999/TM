@@ -13,11 +13,11 @@ class TimeInput(forms.TimeInput):
 class TimesForm(ModelForm):
     class Meta:
         model = TimesModel
-        fields = ['user_name', 'in_date', 'out_date', 'in_time', 'out_time']
 
-        widgets = {
-            'user_name': TextInput(attrs={'class': 'form-control'}),  
-            
+        exclude = ["user_name"]
+
+
+        widgets = {            
             'in_date': DateInput(attrs={'class': 'form-control'}),
 
             'out_date': DateInput(attrs={'class': 'form-control'}),

@@ -10,7 +10,6 @@ class TimesModel(models.Model):
     in_time = models.TextField(blank=False)
     out_time = models.TextField(blank=False)
     
-    pere = models.CharField(max_length=10, blank=False)
 
     def __str__(self):
-        return f'{self.user_name}___{self.pere}'
+        return f'{self.user_name}'
